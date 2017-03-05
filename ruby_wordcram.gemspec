@@ -21,5 +21,5 @@ Gem::Specification.new do |spec|
   spec.files << 'lib/cue.language.jar'
   spec.files << 'lib/jsoup-1.7.2.jar'
   spec.require_paths = ['lib']
-  spec.add_development_dependency 'rake', '~> 12'
+  spec.add_development_dependency 'rake', '~> 12', '>= 12.0'
 end
