@@ -46,8 +46,7 @@ end
 
 ### Output
 
-![image]("{{ site.github.url }}/assets/wordcram.png")
-
+<img src="{{ site.github.url }}/assets/wordcram.png" />
 See more examples [here][examples].
 
 Usage with propane is very similar, to be elaborated.
