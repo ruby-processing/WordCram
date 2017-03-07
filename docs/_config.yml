@@ -1,0 +1,22 @@
+# Site settings
+port: 4000
+title: WordCram gem for JRubyArt and propane
+email: mamba2928@yahoo.co.uk
+description: > # this means to ignore newlines until "baseurl:"
+  The ruby_wordcram gem is wrapper around the WordCram library by Dan Bernier,
+  that makes it very easy to use with JRubyArt and propane. Create fancy word 
+  clouds with ruby_wordcram.
+baseurl: "" # the subpath of your site, e.g. /blog
+regenerate: true
+url: "https://ruby-processing.github.io/WordCram"
+
+urls:
+  bugs: https://github.com/ruby-processing/WordCram/issues
+  github: https://github.com/ruby-processing/WordCram/
+twitter_username: monkstoneT
+github_username:  monkstone
+
+syntax-highlighting:
+  enabled: true
+# Build settings
+markdown: kramdown
