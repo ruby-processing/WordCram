@@ -18,16 +18,7 @@ gem install ruby_wordcram # using rvm rbenv to use jruby instead of MRI
 
 Create basic sketch
 
-```bash
-mkdir 'fred'
-mkdir 'fred/data'
-cp '/usr/share/fonts/TTF/FreeMono.ttf fred/data' # other fonts are available
-# '/usr/share/fonts/TTF/LiberationMono-Bold.ttf' Mac and Windows paths differ
-cd fred
-k9 create fred 600 400
-```
-
-Edit sketch as follows:-
+`mkdir data` and install fonts see below
 
 ```ruby
 # This sketch shows how to make a WordCram from any webpage.
