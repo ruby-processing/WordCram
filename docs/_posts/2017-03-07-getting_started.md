@@ -9,7 +9,7 @@ categories: wordcram update
 
 Requires JRubyArt-1.3.0+ (hence jruby-9.0.8.0+)
 
-### Install the generative gem
+### Install the ruby_wordcram gem
 
 ```bash
 jruby -S gem install ruby_wordcram # safe way
