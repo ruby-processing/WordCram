@@ -46,7 +46,7 @@ end
 
 ### Output
 
-<img src="/assets/wordcram.png" />
+![image]("{{ site.github.url }}/assets/wordcram.png")
 
 See more examples [here][examples].
 
