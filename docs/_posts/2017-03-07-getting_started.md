@@ -47,8 +47,9 @@ end
 ### Output
 
 <img src="{{ site.github.url }}/assets/wordcram.png" />
-See more examples [here][examples].
+Follow links for more JRubyArt [examples][examples] or [propane examples][propane examples].
 
-Usage with propane is very similar, to be elaborated.
+Usage with propane is essentially the same but with a class wrapper.
 
 [examples]:https://github.com/ruby-processing/JRubyArt-examples/tree/master/external_library/gem/ruby_wordcram/
+[propane examples]:https://github.com/ruby-processing/propane-examples/tree/master/external_library/gem/ruby_wordcram
