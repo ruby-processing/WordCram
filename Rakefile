@@ -1,11 +1,34 @@
-task default: [:install_jars, :gem]
+require_relative 'lib/ruby_wordcram/version'
 
-desc 'Build gem'
+def create_manifest
+  title = 'Implementation-Title: WordCram for JRubyArt and propane)'
+  version = format('Implementation-Version: %s', WordCram::VERSION)
+  File.open('MANIFEST.MF', 'w') do |f|
+    f.puts(title)
+    f.puts(version)
+    f.puts('Class-Path: jsoup-1.10.2.jar')
+  end
+end
+
+task default: [:init, :compile, :install]
+
+desc 'Create Manifest'
+task :init do
+  create_manifest
+end
+
+desc 'Install'
+task :install do
+  sh 'mvn dependency:copy'
+  sh 'mv target/WordCram.jar lib'
+end
+
+desc 'Gem'
 task :gem do
   sh 'gem build ruby_wordcram.gemspec'
 end
 
-desc 'Install jars'
-task :install_jars do
-  sh "cd vendors && rake"
+desc 'Compile'
+task :compile do
+  sh 'mvn package'
 end
