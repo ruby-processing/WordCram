@@ -7,7 +7,7 @@ categories: wordcram update
 
 ### The required libraries
 
-- cue.language.jar
+- cue.language (since version-2.0.0 compiled into WordCram.ja)
 
   Created by Jonathan Feinberg
 
@@ -25,9 +25,14 @@ categories: wordcram update
 - WordCram.jar
 
   Created by Dan Bernier
-    WordCram lets you generate word clouds in Processing. It does the heavy lifting – text analysis, collision detection – for you, so you can focus on making your word clouds as beautiful, as revealing, or as silly as you like.
+    WordCram lets you generate word clouds in Processing. It does the heavy lifting – text analysis, collision detection – for you, so you can focus on making your word clouds as beautiful, as revealing, or as silly as you like. Since version 2.0.0 the java code has been updated from java-1.5 to java-1.8, and the java code from the cue.language has aloso been
+    included.
 
 
-- jsoup-1.7.2.jar
+- jsoup-1.10.2.jar (since version 2.0.0)
 
   jsoup is a Java library for working with real-world HTML. It provides a very convenient API for extracting and manipulating data, using the best of DOM, CSS, and jquery-like methods.
+
+### The Build
+
+The build depends on polyglot maven (access to processing core.jar, jsoup.jar is pulled from maven central)
