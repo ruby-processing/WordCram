@@ -3,6 +3,14 @@ project 'Wordcram' do
   model_version '4.0.0'
   id 'wordcram:WordCram:2.0.0'
   packaging 'jar'
+  description 'WordCram for JRubyArt and propane'
+  organization 'ruby-processing', 'https://ruby-processing.github.io'
+  { 'danbernier' => 'Dan Bernier', 'jdf' => 'Jonathan Feinberg', 'monkstone' => 'Martin Prout' }.each do |key, value|
+    developer key do
+      name value
+      roles 'developer'
+    end
+  end
 
   properties(
   'source.directory' => 'src',

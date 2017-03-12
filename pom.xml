@@ -13,6 +13,34 @@ DO NOT MODIFIY - GENERATED CODE
   <artifactId>WordCram</artifactId>
   <version>2.0.0</version>
   <name>Wordcram</name>
+  <description>WordCram for JRubyArt and propane</description>
+  <organization>
+    <name>ruby-processing</name>
+    <url>https://ruby-processing.github.io</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>danbernier</id>
+      <name>Dan Bernier</name>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>jdf</id>
+      <name>Jonathan Feinberg</name>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>monkstone</id>
+      <name>Martin Prout</name>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
   <properties>
     <source.directory>src</source.directory>
     <wordcram.basedir>${project.basedir}</wordcram.basedir>
