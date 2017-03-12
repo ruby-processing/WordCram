@@ -3,6 +3,7 @@ layout: post
 title:  "Supported Languages"
 date:   2017-03-12 05:34:13
 categories: wordcram update
+peramlink: /languages/
 ---
 
 ### Supported languages
