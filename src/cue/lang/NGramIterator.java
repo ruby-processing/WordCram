@@ -27,15 +27,15 @@ import cue.lang.stop.StopWords;
  * retrieve a sequence of {@link String}s, each of which has n words that appear
  * contiguously within a sentence. "Words" are as defined by the
  * {@link WordIterator}.
- * 
+ *
  * <p>
  * If you don't provide a {@link Locale}, you get the default {@link Locale} for
  * your system, which may or may not be what you want. The {@link Locale} is
  * used by a {@link SentenceIterator} to find sentence breaks.
- * 
+ *
  * <p>
  * Example:
- * 
+ *
  * <pre>
  * final String lyric = "This happened once before. I came to your door. No reply.";
  * for (final String s : new NGramIterator(3, lyric)) {
@@ -44,13 +44,13 @@ import cue.lang.stop.StopWords;
  * for (final String s : new NGramIterator(2, lyric)) {
  *     System.out.println(s);
  * }
- *  
+ *
  * This happened once
  * happened once before
  * I came to
  * came to your
  * to your door
- * 
+ *
  * This happened
  * happened once
  * once before
@@ -60,92 +60,97 @@ import cue.lang.stop.StopWords;
  * your door
  * No reply
  * </pre>
- * 
+ *
  * @author Jonathan Feinberg <jdf@us.ibm.com>
- * 
+ *
  */
 public class NGramIterator extends IterableText {
-	private final SentenceIterator sentenceIterator;
-	private final LinkedList<String> grams = new LinkedList<String>();
-	private final int n;
-	private final StopWords stopWords;
 
-	private String next;
-	private Iterator<String> currentWordIterator;
+    private final SentenceIterator sentenceIterator;
+    private final LinkedList<String> grams = new LinkedList<>();
+    private final int n;
+    private final StopWords stopWords;
 
-	public NGramIterator(final int n, final String text) {
-		this(n, text, Locale.getDefault());
-	}
+    private String next;
+    private Iterator<String> currentWordIterator;
 
-	public NGramIterator(final int n, final String text, final Locale locale) {
-		this(n, text, locale, null);
-	}
+    public NGramIterator(final int n, final String text) {
+        this(n, text, Locale.getDefault());
+    }
 
-	public NGramIterator(final int n, final String text, final Locale locale,
-			final StopWords stopWords) {
-		this.n = n;
-		this.sentenceIterator = new SentenceIterator(text, locale);
-		this.stopWords = stopWords;
-		loadNext();
-	}
+    public NGramIterator(final int n, final String text, final Locale locale) {
+        this(n, text, locale, null);
+    }
 
-        @Override
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
+    public NGramIterator(final int n, final String text, final Locale locale,
+            final StopWords stopWords) {
+        this.n = n;
+        this.sentenceIterator = new SentenceIterator(text, locale);
+        this.stopWords = stopWords;
+        loadNext();
+    }
 
-        @Override
-	public String next() {
-		if (next == null) {
-			throw new NoSuchElementException();
-		}
-		final String result = next;
-		loadNext();
-		return result;
-	}
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
 
-        @Override
-	public boolean hasNext() {
-		return next != null;
-	}
+    @Override
+    public String next() {
+        if (next == null) {
+            throw new NoSuchElementException();
+        }
+        final String result = next;
+        loadNext();
+        return result;
+    }
 
-	private void loadNext() {
-		next = null;
-		if (!grams.isEmpty()) {
-			grams.pop();
-		}
-		while (grams.size() < n) {
-			while (currentWordIterator == null
-					|| !currentWordIterator.hasNext()) {
-				if (!sentenceIterator.hasNext()) {
-					return;
-				}
-				grams.clear();
-				currentWordIterator = new WordIterator(sentenceIterator.next())
-						.iterator();
-				for (int i = 0; currentWordIterator.hasNext() && i < n - 1; i++) {
-					maybeAddWord();
-				}
-			}
-			// now grams has n-1 words in it and currentWordIterator hasNext
-			maybeAddWord();
-		}
-		final StringBuilder sb = new StringBuilder();
-		for (final String gram : grams) {
-			if (sb.length() > 0) {
-				sb.append(" ");
-			}
-			sb.append(gram);
-		}
-		next = sb.toString();
-	}
+    /**
+     *
+     * @return
+     */
+    @Override
+    public boolean hasNext() {
+        return next != null;
+    }
 
-	private void maybeAddWord() {
-		final String nextWord = currentWordIterator.next();
-		if (stopWords != null && stopWords.isStopWord(nextWord)) {
-			grams.clear();
-		} else {
-			grams.add(nextWord);
-		}
-	}
+    private void loadNext() {
+        next = null;
+        if (!grams.isEmpty()) {
+            grams.pop();
+        }
+        while (grams.size() < n) {
+            while (currentWordIterator == null
+                    || !currentWordIterator.hasNext()) {
+                if (!sentenceIterator.hasNext()) {
+                    return;
+                }
+                grams.clear();
+                currentWordIterator = new WordIterator(sentenceIterator.next())
+                        .iterator();
+                for (int i = 0; currentWordIterator.hasNext() && i < n - 1; i++) {
+                    maybeAddWord();
+                }
+            }
+            // now grams has n-1 words in it and currentWordIterator hasNext
+            maybeAddWord();
+        }
+        final StringBuilder sb = new StringBuilder();
+        grams.forEach((gram) -> {
+            if (sb.length() > 0) {
+                sb.append(" ");
+            }
+            sb.append(gram);
+        });
+        next = sb.toString();
+    }
+
+    private void maybeAddWord() {
+        final String nextWord = currentWordIterator.next();
+        if (stopWords != null && stopWords.isStopWord(nextWord)) {
+            grams.clear();
+        } else {
+            grams.add(nextWord);
+        }
+    }
 }

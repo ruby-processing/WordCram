@@ -13,7 +13,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-
 package cue.lang;
 
 import java.util.ArrayList;
@@ -26,116 +25,105 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 /**
- * 
+ *
  * @author Jonathan Feinberg <jdf@us.ibm.com>
  * @param <T>
- * 
+ *
  */
 public class Counter<T> {
-	// delegate, don't extend, to prevent unauthorized monkeying with internals
-	private final Map<T, Integer> items = new HashMap<T, Integer>();
-	private int totalItemCount = 0;
+    // delegate, don't extend, to prevent unauthorized monkeying with internals
 
-	public Counter() {
-        this.BY_FREQ_DESC = new Comparator<Entry<T, Integer>>() {
-            @Override
-            public int compare(final Entry<T, Integer> o1,
-                    final Entry<T, Integer> o2) {
-                return o2.getValue() - o1.getValue();
-            }
-        };
-	}
+    private final Map<T, Integer> items = new HashMap<>();
+    private int totalItemCount = 0;
 
-	public Counter(final Iterable<T> items) {
-        this.BY_FREQ_DESC = new Comparator<Entry<T, Integer>>() {
-            @Override
-            public int compare(final Entry<T, Integer> o1,
-                    final Entry<T, Integer> o2) {
-                return o2.getValue() - o1.getValue();
-            }
-        };
-		noteAll(items);
-	}
+    public Counter() {
+        this.BY_FREQ_DESC = (final Entry<T, Integer> o1, final Entry<T, Integer> o2) -> o2.getValue() - o1.getValue();
+    }
 
-	public final void noteAll(final Iterable<T> items) {
-		for (final T t : items) {
-			note(t, 1);
-		}
-	}
+    public Counter(final Iterable<T> items) {
+        this.BY_FREQ_DESC = (final Entry<T, Integer> o1, final Entry<T, Integer> o2) -> o2.getValue() - o1.getValue();
+        noteAll(items);
+    }
 
-	public void note(final T item) {
-		note(item, 1);
-	}
+    public final void noteAll(final Iterable<T> items) {
+        for (final T t : items) {
+            note(t, 1);
+        }
+    }
 
-	public void note(final T item, final int count) {
-		final Integer existingCount = items.get(item);
-		if (existingCount != null) {
-			items.put(item, existingCount + count);
-		} else {
-			items.put(item, count);
-		}
-		totalItemCount += count;
-	}
+    public void note(final T item) {
+        note(item, 1);
+    }
 
-	public void merge(final Counter<T> c) {
-		for (final Entry<T, Integer> e : c.items.entrySet()) {
-			note(e.getKey(), e.getValue());
-		}
-	}
+    public void note(final T item, final int count) {
+        final Integer existingCount = items.get(item);
+        if (existingCount != null) {
+            items.put(item, existingCount + count);
+        } else {
+            items.put(item, count);
+        }
+        totalItemCount += count;
+    }
 
-	public int getTotalItemCount() {
-		return totalItemCount;
-	}
+    public void merge(final Counter<T> c) {
+        c.items.entrySet().forEach((e) -> {
+            note(e.getKey(), e.getValue());
+        });
+    }
 
-	private final Comparator<Entry<T, Integer>> BY_FREQ_DESC;
+    public int getTotalItemCount() {
+        return totalItemCount;
+    }
 
-	/**
-	 * @param n
-	 * @return A list of the min(n, size()) most frequent items
-	 */
-	public List<T> getMostFrequent(final int n) {
-		final List<Entry<T, Integer>> all = getAllByFrequency();
-		final int resultSize = Math.min(n, items.size());
-		final List<T> result = new ArrayList<T>(resultSize);
-		for (final Entry<T, Integer> e : all.subList(0, resultSize)) {
-			result.add(e.getKey());
-		}
-		return Collections.unmodifiableList(result);
-	}
+    private final Comparator<Entry<T, Integer>> BY_FREQ_DESC;
 
-	public List<Entry<T, Integer>> getAllByFrequency() {
-		final List<Entry<T, Integer>> all = new ArrayList<Entry<T, Integer>>(
-				items.entrySet());
-		Collections.sort(all, BY_FREQ_DESC);
-		return Collections.unmodifiableList(all);
-	}
+    /**
+     * @param n
+     * @return A list of the min(n, size()) most frequent items
+     */
+    public List<T> getMostFrequent(final int n) {
+        final List<Entry<T, Integer>> all = getAllByFrequency();
+        final int resultSize = Math.min(n, items.size());
+        final List<T> result = new ArrayList<>(resultSize);
+        all.subList(0, resultSize).forEach((e) -> {
+            result.add(e.getKey());
+        });
+        return Collections.unmodifiableList(result);
+    }
 
-	public Integer getCount(final T item) {
-		final Integer freq = items.get(item);
-		if (freq == null) {
-			return 0;
-		}
-		return freq;
-	}
+    public List<Entry<T, Integer>> getAllByFrequency() {
+        final List<Entry<T, Integer>> all = new ArrayList<>(
+                items.entrySet());
+        Collections.sort(all, BY_FREQ_DESC);
+        return Collections.unmodifiableList(all);
+    }
 
-	public void clear() {
-		items.clear();
-	}
+    public Integer getCount(final T item) {
+        final Integer freq = items.get(item);
+        if (freq == null) {
+            return 0;
+        }
+        return freq;
+    }
 
-	public Set<Entry<T, Integer>> entrySet() {
-		return Collections.unmodifiableSet(items.entrySet());
-	}
+    public void clear() {
+        items.clear();
+    }
 
-	public Set<T> keySet() {
-		return Collections.unmodifiableSet(items.keySet());
-	}
+    public Set<Entry<T, Integer>> entrySet() {
+        return Collections.unmodifiableSet(items.entrySet());
+    }
 
-	public List<T> keyList() {
-		return getMostFrequent(items.size());
-	}
+    public Set<T> keySet() {
+        return Collections.unmodifiableSet(items.keySet());
+    }
 
-	@Override
-	public String toString() {
-		return items.toString();
-	}
+    public List<T> keyList() {
+        return getMostFrequent(items.size());
+    }
+
+    @Override
+    public String toString() {
+        return items.toString();
+    }
 }

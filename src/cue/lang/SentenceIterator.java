@@ -24,63 +24,68 @@ import java.util.regex.Pattern;
  * Construct with a {@link String}; retrieve a sequence of {@link String}s, each
  * of which is a "sentence" according to Java's built-in model for the given
  * {@link Locale}.
- * 
+ *
  * @author Jonathan Feinberg <jdf@us.ibm.com>
- * 
+ *
  */
 public class SentenceIterator extends IterableText {
-	private final String text;
-	private final BreakIterator breakIterator;
-	int start, end;
 
-	/**
-	 * Uses the default {@link Locale} for the running instance of the JVM.
-	 * 
-	 * @param text
-	 */
-	public SentenceIterator(final String text) {
-		this(text, Locale.getDefault());
-	}
+    private final String text;
+    private final BreakIterator breakIterator;
+    int start, end;
 
-	public SentenceIterator(final String text, final Locale locale) {
-		this.text = text;
-		breakIterator = BreakIterator.getSentenceInstance(locale);
-		breakIterator.setText(text);
-		start = end = breakIterator.first();
-		advance();
-	}
+    /**
+     * Uses the default {@link Locale} for the running instance of the JVM.
+     *
+     * @param text
+     */
+    public SentenceIterator(final String text) {
+        this(text, Locale.getDefault());
+    }
 
-	private static final Pattern ABBREVS = Pattern
-			.compile("(?:Mrs?|Ms|Dr|Rev)\\.\\s*$");
+    public SentenceIterator(final String text, final Locale locale) {
+        this.text = text;
+        breakIterator = BreakIterator.getSentenceInstance(locale);
+        breakIterator.setText(text);
+        start = end = breakIterator.first();
+        advance();
+    }
 
-	private void advance() {
-		start = end;
-		while (hasNext()
-				&& ((end == start) || ABBREVS.matcher(
-						text.substring(start, end)).find())) {
-			end = breakIterator.next();
-		}
-	}
+    private static final Pattern ABBREVS = Pattern
+            .compile("(?:Mrs?|Ms|Dr|Rev)\\.\\s*$");
 
-        @Override
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
+    private void advance() {
+        start = end;
+        while (hasNext()
+                && ((end == start) || ABBREVS.matcher(
+                        text.substring(start, end)).find())) {
+            end = breakIterator.next();
+        }
+    }
 
-        @Override
-	public String next() {
-		if (!hasNext()) {
-			throw new NoSuchElementException();
-		}
-		final String result = text.substring(start, end)
-				.replaceAll("\\s+", " ");
-		advance();
-		return result;
-	}
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
 
-        @Override
-	public final boolean hasNext() {
-		return end != BreakIterator.DONE;
-	}
+    @Override
+    public String next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        final String result = text.substring(start, end)
+                .replaceAll("\\s+", " ");
+        advance();
+        return result;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public final boolean hasNext() {
+        return end != BreakIterator.DONE;
+    }
 
 }
