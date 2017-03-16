@@ -7,7 +7,7 @@ categories: wordcram update
 
 ### The required libraries
 
-- cue.language (since version-2.0.0 compiled into WordCram.ja)
+- cue.language (since version-2.0.0 compiled into WordCram.jar)
 
   Created by Jonathan Feinberg
 
