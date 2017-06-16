@@ -1,7 +1,7 @@
 project 'Wordcram' do
 
   model_version '4.0.0'
-  id 'wordcram:WordCram:2.0.0'
+  id 'wordcram:WordCram:2.0.1'
   packaging 'jar'
   description 'WordCram for JRubyArt and propane'
   organization 'ruby-processing', 'https://ruby-processing.github.io'
@@ -30,8 +30,8 @@ project 'Wordcram' do
       } )
     end
 
-    jar 'org.processing:core:3.3.0'
-    jar 'org.jsoup:jsoup:1.10.2'
+    jar 'org.processing:core:3.3.4'
+    jar 'org.jsoup:jsoup:1.10.3'
 
     build do
       default_goal 'package'
@@ -50,7 +50,7 @@ project 'Wordcram' do
         execute_goals( id: 'default-cli',
         artifactItems: [ { groupId:  'org.jsoup',
           artifactId:  'jsoup',
-          version:  '1.10.2',
+          version:  '1.10.3',
           type:  'jar',
           outputDirectory: '${wordcram.basedir}/lib'
         }

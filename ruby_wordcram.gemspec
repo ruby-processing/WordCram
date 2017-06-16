@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = %w{README.md LICENSE}
   spec.summary = %q{Updated and extended WordCram library for JRubyArt and propane}
   spec.description =<<-EOS
-  WordCram library wrapped in a rubygem. Compiled and tested with JRubyArt-1.3 and processing-3.3
+  WordCram library wrapped in a rubygem. Compiled and tested with JRubyArt-1.3.3 and processing-3.4
   EOS
   spec.licenses = %w{Apache-2.0}
   spec.authors = %w{Dan\ Bernier Jonathan\ Feinberg  Martin\ Prout}
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.homepage = 'http://ruby-processing.github.io/WordCram/'
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.files << 'lib/WordCram.jar'
-  spec.files << 'lib/jsoup-1.10.2.jar'
+  spec.files << 'lib/jsoup-1.10.3.jar'
   spec.require_paths = ['lib']
   spec.add_development_dependency 'rake', '~> 12', '>= 12.0'
 end

@@ -6,7 +6,7 @@ def create_manifest
   File.open('MANIFEST.MF', 'w') do |f|
     f.puts(title)
     f.puts(version)
-    f.puts('Class-Path: jsoup-1.10.2.jar')
+    f.puts('Class-Path: jsoup-1.10.3.jar')
   end
 end
 
