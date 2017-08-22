@@ -11,7 +11,7 @@ DO NOT MODIFIY - GENERATED CODE
   <modelVersion>4.0.0</modelVersion>
   <groupId>wordcram</groupId>
   <artifactId>WordCram</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
   <name>Wordcram</name>
   <description>WordCram for JRubyArt and propane</description>
   <organization>
@@ -53,7 +53,7 @@ DO NOT MODIFIY - GENERATED CODE
     <dependency>
       <groupId>org.processing</groupId>
       <artifactId>core</artifactId>
-      <version>3.3.4</version>
+      <version>3.3.5</version>
     </dependency>
     <dependency>
       <groupId>org.jsoup</groupId>
@@ -62,7 +62,7 @@ DO NOT MODIFIY - GENERATED CODE
     </dependency>
   </dependencies>
   <build>
-    <sourceDirectory>source.directory</sourceDirectory>
+    <sourceDirectory>${source.directory}</sourceDirectory>
     <defaultGoal>package</defaultGoal>
     <resources>
       <resource>

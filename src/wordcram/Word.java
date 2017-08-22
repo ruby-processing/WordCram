@@ -290,6 +290,7 @@ public class Word implements Comparable<Word> {
     /**
      * Displays the word, and its weight (in parentheses).
      * <code>new Word("hello", 1.3).toString()</code> will return "hello (0.3)".
+     * @return 
      */
     @Override
     public String toString() {
@@ -309,6 +310,7 @@ public class Word implements Comparable<Word> {
     /**
      * Compares Words based on weight only. Words with equal weight are arbitrarily sorted.
      * @param w
+     * @return 
      */
     @Override
     public int compareTo(Word w) {

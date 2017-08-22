@@ -30,12 +30,12 @@ project 'Wordcram' do
       } )
     end
 
-    jar 'org.processing:core:3.3.4'
+    jar 'org.processing:core:3.3.5'
     jar 'org.jsoup:jsoup:1.10.3'
 
     build do
       default_goal 'package'
-      source_directory 'source.directory'
+      source_directory '${source.directory}'
       final_name 'WordCram'
       resource do
         directory 'src'
