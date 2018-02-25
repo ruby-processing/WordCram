@@ -7,7 +7,7 @@ categories: wordcram update
 
 ### Requirements
 
-Requires JRubyArt-1.3.0+ (hence jruby-9.1.8.0+)
+Requires JRubyArt-1.4.6+ (hence jruby-9.1.16.0+)
 
 ### Install the ruby_wordcram gem
 

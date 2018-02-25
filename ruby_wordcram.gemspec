@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = %w{README.md LICENSE}
   spec.summary = %q{Updated and extended WordCram library for JRubyArt and propane}
   spec.description =<<-EOS
-  WordCram library wrapped in a rubygem. Compiled and tested with JRubyArt-1.4.2 and processing-3.5
+  WordCram library wrapped in a rubygem. Compiled and tested with JRubyArt-1.4.6 and processing-3.3.6
   EOS
   spec.licenses = %w{Apache-2.0}
   spec.authors = %w{Dan\ Bernier Jonathan\ Feinberg  Martin\ Prout}

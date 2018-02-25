@@ -1,7 +1,7 @@
 project 'Wordcram' do
 
   model_version '4.0.0'
-  id 'wordcram:WordCram:2.0.1'
+  id 'wordcram:WordCram:2.0.3'
   packaging 'jar'
   description 'WordCram for JRubyArt and propane'
   organization 'ruby-processing', 'https://ruby-processing.github.io'
@@ -30,7 +30,7 @@ project 'Wordcram' do
       } )
     end
 
-    jar 'org.processing:core:3.3.5'
+    jar 'org.processing:core:3.3.6'
     jar 'org.jsoup:jsoup:1.10.3'
 
     build do
