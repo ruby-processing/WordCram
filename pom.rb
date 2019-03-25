@@ -1,7 +1,7 @@
 project 'Wordcram' do
 
   model_version '4.0.0'
-  id 'wordcram:WordCram:2.0.3'
+  id 'wordcram:WordCram:2.0.4'
   packaging 'jar'
   description 'WordCram for JRubyArt and propane'
   organization 'ruby-processing', 'https://ruby-processing.github.io'

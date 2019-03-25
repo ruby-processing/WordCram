@@ -1,3 +1,6 @@
+**v2.0.4**
+JRubyArt-1.6.3 and processing-3.5.3
+
 **v2.0.3**
 JRubyArt-1.4.6 and processing-3.3.6
 
