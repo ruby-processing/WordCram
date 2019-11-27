@@ -1,7 +1,7 @@
 project 'Wordcram' do
 
   model_version '4.0.0'
-  id 'wordcram:WordCram:2.0.4'
+  id 'wordcram:WordCram:2.0.5'
   packaging 'jar'
 
   description 'WordCram for JRubyArt and propane'
@@ -35,7 +35,10 @@ project 'Wordcram' do
       plugin( :jar,
         'archive' => {
           'manifestEntries' => {
-            'Built-By' =>  'monkstone'
+            'Built-By' => 'monkstone',
+            'Implementation-Title' => 'ruby_wordcram',
+            'Implementation-Version' =>  '2.0.5',
+            'Automatic-Module-Name' =>  'ruby-processing.wordcram'
           }
           } )
           plugin :resources, '2.6'

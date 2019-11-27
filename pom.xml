@@ -11,7 +11,7 @@ DO NOT MODIFIY - GENERATED CODE
   <modelVersion>4.0.0</modelVersion>
   <groupId>wordcram</groupId>
   <artifactId>WordCram</artifactId>
-  <version>2.0.4</version>
+  <version>2.0.5</version>
   <name>Wordcram</name>
   <description>WordCram for JRubyArt and propane</description>
   <developers>
@@ -77,6 +77,9 @@ DO NOT MODIFIY - GENERATED CODE
             <archive>
               <manifestEntries>
                 <Built-By>monkstone</Built-By>
+                <Implementation-Title>ruby_wordcram</Implementation-Title>
+                <Implementation-Version>2.0.5</Implementation-Version>
+                <Automatic-Module-Name>ruby-processing.wordcram</Automatic-Module-Name>
               </manifestEntries>
             </archive>
           </configuration>
