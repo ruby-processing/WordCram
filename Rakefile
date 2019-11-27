@@ -6,7 +6,7 @@ def create_manifest
   File.open('MANIFEST.MF', 'w') do |f|
     f.puts(title)
     f.puts(version)
-    f.puts('Class-Path: jsoup-1.10.3.jar')
+    f.puts('Class-Path: jsoup-1.12.1.jar')
   end
 end
 
@@ -19,7 +19,7 @@ end
 
 desc 'Install'
 task :install do
-  sh 'mvn dependency:copy'
+	sh './mvnw dependency:copy'
   sh 'mv target/WordCram.jar lib'
 end
 
@@ -30,5 +30,5 @@ end
 
 desc 'Compile'
 task :compile do
-  sh 'mvn package'
+	sh './mvnw package'
 end

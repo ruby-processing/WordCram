@@ -1,3 +1,6 @@
+**v2.0.5**
+Bump jsoup version for PiCrate-1.2.2+, JRubyArt-1.2.2+, propane-3.4.0+
+
 **v2.0.4**
 JRubyArt-1.6.3 and processing-3.5.3
 
