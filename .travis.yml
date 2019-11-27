@@ -4,6 +4,6 @@ sudo: false
 rvm:
   - jruby-9.1.12.0
 jdk:
-  - oraclejdk8
+  - oraclejdk11
 os:
   - linux
