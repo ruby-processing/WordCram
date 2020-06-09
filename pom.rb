@@ -29,7 +29,7 @@ project 'Wordcram' do
               'wordcram.basedir' => '${project.basedir}'
             )
 
-    jar 'org.processing:core:3.3.7'
+    jar 'org.processing:core:4.0.0'
     jar 'org.jsoup:jsoup:1.13.1'
 
     overrides do
