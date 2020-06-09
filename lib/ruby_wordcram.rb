@@ -2,7 +2,7 @@
 
 if RUBY_PLATFORM == 'java'
   require 'WordCram.jar'
-  require 'jsoup-1.12.1.jar'
+  require 'jsoup-1.13.1.jar'
   wc = %w[WordAngler WordColorer WordCram WordFonter WordPlacer WordSkipReason]
   sh = %w[Colorers ImageShaper Observer Placers Word ShapeBasedPlacer]
   WC = wc.concat(sh).freeze

@@ -28,17 +28,14 @@ project 'Wordcram' do
     'project.build.sourceEncoding' => 'utf-8',
     'wordcram.basedir' => '${project.basedir}' )
 
-    jar 'org.processing:core:3.3.5'
-    jar 'org.jsoup:jsoup:1.12.1'
+    jar 'org.processing:core:4.0.0'
+    jar 'org.jsoup:jsoup:1.13.1'
 
     overrides do
-      plugin( :jar,
+      plugin( :jar, '3.2.0',
         'archive' => {
           'manifestEntries' => {
-            'Built-By' => 'monkstone',
-            'Implementation-Title' => 'ruby_wordcram',
-            'Implementation-Version' =>  '2.0.5',
-            'Automatic-Module-Name' =>  'ruby-processing.wordcram'
+            'Automatic-Module-Name' =>  'org.processing.core'
           }
           } )
           plugin :resources, '2.6'
@@ -46,7 +43,7 @@ project 'Wordcram' do
             execute_goals( :id => 'default-cli',
               'artifactItems' => [ { 'groupId' =>  'org.jsoup',
                 'artifactId' =>  'jsoup',
-                'version' =>  '1.12.1',
+                'version' =>  '1.13.1',
                 'type' =>  'jar',
                 'outputDirectory' =>  '${wordcram.basedir}/lib' } ] )
               end
@@ -60,7 +57,6 @@ project 'Wordcram' do
 
               resource do
                 directory 'src'
-                includes
                 excludes '**/*.java'
               end
             end
