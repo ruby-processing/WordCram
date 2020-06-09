@@ -11,7 +11,7 @@ DO NOT MODIFIY - GENERATED CODE
   <modelVersion>4.0.0</modelVersion>
   <groupId>wordcram</groupId>
   <artifactId>WordCram</artifactId>
-  <version>2.0.5</version>
+  <version>2.0.6</version>
   <name>Wordcram</name>
   <description>WordCram for JRubyArt and propane</description>
   <developers>
@@ -38,11 +38,10 @@ DO NOT MODIFIY - GENERATED CODE
     </developer>
   </developers>
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
     <polyglot.dump.pom>pom.xml</polyglot.dump.pom>
-    <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <source.directory>src</source.directory>
+    <target.release>11</target.release>
     <wordcram.basedir>${project.basedir}</wordcram.basedir>
   </properties>
   <dependencies>
@@ -71,6 +70,13 @@ DO NOT MODIFIY - GENERATED CODE
     <finalName>WordCram</finalName>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <release>${target.release}</release>
+          </configuration>
+        </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.2.0</version>

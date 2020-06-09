@@ -1,21 +1,6 @@
 require_relative 'lib/ruby_wordcram/version'
 
-def create_manifest
-  title = 'Implementation-Title: WordCram for JRubyArt and propane)'
-  version = format('Implementation-Version: %s', WordCram::VERSION)
-  File.open('MANIFEST.MF', 'w') do |f|
-    f.puts(title)
-    f.puts(version)
-    f.puts('Class-Path: jsoup-1.12.1.jar')
-  end
-end
-
-task default: [:init, :compile, :install]
-
-desc 'Create Manifest'
-task :init do
-  create_manifest
-end
+task default: [:compile, :install, :gem]
 
 desc 'Install'
 task :install do

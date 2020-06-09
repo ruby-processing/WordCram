@@ -1,7 +1,7 @@
 project 'Wordcram' do
 
   model_version '4.0.0'
-  id 'wordcram:WordCram:2.0.5'
+  id 'wordcram:WordCram:2.0.6'
   packaging 'jar'
 
   description 'WordCram for JRubyArt and propane'
@@ -21,17 +21,20 @@ project 'Wordcram' do
     roles 'developer'
   end
 
-  properties( 'maven.compiler.target' => '1.8',
-    'source.directory' => 'src',
-    'maven.compiler.source' => '1.8',
-    'polyglot.dump.pom' => 'pom.xml',
-    'project.build.sourceEncoding' => 'utf-8',
-    'wordcram.basedir' => '${project.basedir}' )
+  properties( 'source.directory' => 'src',
+              'polyglot.dump.pom' => 'pom.xml',
+              'project.build.sourceEncoding' => 'UTF-8',
+              'target.release' => '11',
+              'polyglot.dump.pom' => 'pom.xml',
+              'wordcram.basedir' => '${project.basedir}'
+            )
 
-    jar 'org.processing:core:4.0.0'
+    jar 'org.processing:core:3.3.7'
     jar 'org.jsoup:jsoup:1.13.1'
 
     overrides do
+      plugin( :compiler, '3.8.1',
+              'release' =>  '${target.release}' )
       plugin( :jar, '3.2.0',
         'archive' => {
           'manifestEntries' => {
