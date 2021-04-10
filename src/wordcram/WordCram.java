@@ -271,7 +271,7 @@ public class WordCram {
 
     /**
      * Make a WordCram from the text in any elements on a web page that match the
-     * <tt>cssSelector</tt>.
+     * <b>cssSelector</b>.
      * Just before the WordCram is drawn, it'll load the web page's HTML, scrape
      * out the text, and count and sort the words.
      *
@@ -303,7 +303,7 @@ public class WordCram {
 
     /**
      * Make a WordCram from the text in any elements on a web page that match the
-     * <tt>cssSelector</tt>.
+     * <b>cssSelector</b>.
      * Just before the WordCram is drawn, it'll load the file's HTML, scrape out the text,
      * and count and sort the words.
      *
@@ -709,6 +709,7 @@ public class WordCram {
      * @param canvas the canvas to draw to
      * @return The WordCram, for further setup or drawing.
      */
+    @Deprecated
     public WordCram withCustomCanvas(PGraphics canvas) {
         return toCanvas(canvas);
     }

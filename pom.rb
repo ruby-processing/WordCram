@@ -1,10 +1,10 @@
 project 'Wordcram' do
 
   model_version '4.0.0'
-  id 'wordcram:WordCram:2.0.6'
+  id 'wordcram:WordCram:2.1.0'
   packaging 'jar'
 
-  description 'WordCram for JRubyArt and propane'
+  description 'WordCram for JRubyArt, PiCrate and propane'
 
   developer 'danbernier' do
     name 'Dan Bernier'

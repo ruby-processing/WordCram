@@ -52,7 +52,7 @@ public class SentenceIterator extends IterableText {
     }
 
     private static final Pattern ABBREVS = Pattern
-            .compile("(?:Mrs?|Ms|Dr|Rev)\\.\\s*$");
+            .compile("(?:Mrs?|Ms|Dr|Rev|e.g|i.e)\\.\\s*$");
 
     private void advance() {
         start = end;
