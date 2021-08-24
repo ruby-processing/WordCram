@@ -1,4 +1,8 @@
-**v2.1.0** for PiCrate-2.4.0+, JRubyArt-2.5.0+, propane-3.10.0+
+**v2.1.0**
+Bump jsoup-1.14.2 version
+
+**v2.1.0**
+for PiCrate-2.4.0+, JRubyArt-2.5.0+, propane-3.10.0+
 
 **v2.0.6**
 Bump jsoup-1.13.1 version

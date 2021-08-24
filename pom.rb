@@ -1,7 +1,7 @@
 project 'Wordcram' do
 
   model_version '4.0.0'
-  id 'wordcram:WordCram:2.1.0'
+  id 'wordcram:WordCram:2.1.1'
   packaging 'jar'
 
   description 'WordCram for JRubyArt, PiCrate and propane'
@@ -30,7 +30,7 @@ project 'Wordcram' do
             )
 
     jar 'org.processing:core:4.0.0'
-    jar 'org.jsoup:jsoup:1.13.1'
+    jar 'org.jsoup:jsoup:1.14.2'
 
     overrides do
       plugin( :compiler, '3.8.1',
@@ -46,7 +46,7 @@ project 'Wordcram' do
             execute_goals( :id => 'default-cli',
               'artifactItems' => [ { 'groupId' =>  'org.jsoup',
                 'artifactId' =>  'jsoup',
-                'version' =>  '1.13.1',
+                'version' =>  '1.14.2',
                 'type' =>  'jar',
                 'outputDirectory' =>  '${wordcram.basedir}/lib' } ] )
               end
