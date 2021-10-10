@@ -42,7 +42,7 @@ project 'Wordcram' do
           }
           } )
           plugin :resources, '2.6'
-          plugin :dependency, '2.10' do
+          plugin :dependency, '3.2.0' do
             execute_goals( :id => 'default-cli',
               'artifactItems' => [ { 'groupId' =>  'org.jsoup',
                 'artifactId' =>  'jsoup',
