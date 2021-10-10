@@ -22,7 +22,6 @@ project 'Wordcram' do
   end
 
   properties( 'source.directory' => 'src',
-              'polyglot.dump.pom' => 'pom.xml',
               'project.build.sourceEncoding' => 'UTF-8',
               'target.release' => '11',
               'polyglot.dump.pom' => 'pom.xml',
